@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuadrícula 10x10 con Colores Aleatorios</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canvas básico - Rectángulos</h1>
+  <canvas id="miCanvas" width="400" height="400"></canvas>
+  <script>
+    // Obtener el canvas y el contexto
+    var canvas = document.getElementById("miCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Definir el tamaño de cada celda y el número de filas y columnas
+    var cellSize = 40;
+    var rows = 10;
+    var cols = 10;
+
+    // Función para generar un color aleatorio en formato RGB
+    function getRandomColor() {
+      var r = Math.floor(Math.random() * 256);
+      var g = Math.floor(Math.random() * 256);
+      var b = Math.floor(Math.random() * 256);
+      return "rgb(" + r + "," + g + "," + b + ")";
+    }
+
+    // Dibujar la cuadrícula con colores aleatorios y borde negro
+    function drawGridWithRandomColors() {
+      for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+          var color = getRandomColor();
+          ctx.fillStyle = color;
+          ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
+          // Dibujar el borde negro
+          ctx.strokeStyle = "#000000"; // Color del borde
+          ctx.lineWidth = 3; // Grosor de línea
+          ctx.strokeRect(i * cellSize, j * cellSize, cellSize, cellSize);
+        }
+      }
+    }
+
+    // Llamar a la función para dibujar la cuadrícula con colores aleatorios
+    drawGridWithRandomColors();
+  </script>
+</body>
+</html>

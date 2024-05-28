@@ -1,0 +1,22 @@
+<h1>canvas basico</h1>
+<canvas widht="500" height="300">
+    Tu navegador no soporta canvas
+</canvas>
+<script>
+    window.onload = function()
+    {
+        var canvas = document.getElementById("miCanvas");
+        if(canvas && canvas.getContext)
+        {
+            var ctx = canvas.getContext("2d");
+            if(ctx)
+            {
+                alert("Bienvenidos al canvas de html");
+            }
+            else
+            {
+                alert("error al crear el contexto");
+            }
+        }
+    }
+</script>
